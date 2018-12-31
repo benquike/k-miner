@@ -44,7 +44,11 @@ public:
 		return transform();
 	}
 
-	virtual const char* getPassName() const {
+#if LLVM_VERSION_MAJOR >= 4
+        virtual StringRef getPassName() const{
+#else
+        virtual const char* getPassName() const{
+#endif
 		return "Kernel Alloc Transform Pass";
 	}
 
