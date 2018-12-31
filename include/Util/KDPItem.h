@@ -1,6 +1,7 @@
 #ifndef KDPITEM_H
 #define KDPITEM_H
 
+#include "SVF/MSSA/SVFGNode.h"
 #include "SVF/Util/DPItem.h"
 
 typedef std::list<NodeID> NodeIdList;

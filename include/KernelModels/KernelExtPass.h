@@ -9,6 +9,7 @@
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/IR/Module.h"
 #include "llvm/Pass.h"
+#include "llvm/ADT/StringRef.h"
 #include "llvm/Support/raw_ostream.h"
 #include "SVF/Util/BasicTypes.h"
 #include "SVF/Util/ExtAPI.h"
@@ -45,7 +46,7 @@ public:
 	}
 
 #if LLVM_VERSION_MAJOR >= 4
-        virtual StringRef getPassName() const{
+        virtual llvm::StringRef getPassName() const{
 #else
         virtual const char* getPassName() const{
 #endif

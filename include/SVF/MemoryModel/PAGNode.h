@@ -308,9 +308,14 @@ public:
 
     /// Return name of a LLVM value
     const std::string getValueName() {
+#if LLVM_VERSION_MAJOR >= 4
+        std::string offset_str = llvm::utostr(getOffset());
+#else
+        std::string offset_str = llvm::utostr_32(getOffset());
+#endif
         if (value && value->hasName())
-            return value->getName().str() + "_" + llvm::utostr_32(getOffset());
-        return "offset_" + llvm::utostr_32(getOffset());
+            return value->getName().str() + "_" + offset_str;
+        return "offset_" + offset_str;
     }
 };
 
